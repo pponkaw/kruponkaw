@@ -3,135 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#173d35">
-  <meta name="description" content="เรียนรู้หลักธรรมอริยสัจ 4 ผ่านบทเรียน กิจกรรมสะท้อนคิด และแบบทดสอบ">
-  <title>อริยสัจ 4 | เข้าใจทุกข์ เห็นทางพ้นทุกข์</title>
+  <meta name="description" content="เว็บไซต์เรียนรู้หลักธรรมอริยสัจ 4 สำหรับการเรียนรู้และทบทวน">
+  <meta name="theme-color" content="#153b35">
+  <title>อริยสัจ 4 | เส้นทางแห่งความเข้าใจ</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="หน้าแรก">
-      <span class="brand-mark">☸</span><span>ธรรมะ<span class="brand-light">ใกล้ใจ</span></span>
+      <span class="brand-mark">☸</span><span><strong>อริยสัจ 4</strong><small>เส้นทางแห่งความเข้าใจ</small></span>
     </a>
     <button class="menu-toggle" id="menuToggle" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
     <nav id="mainNav" aria-label="เมนูหลัก">
-      <a href="#learn">บทเรียน</a><a href="#practice">นำไปใช้</a><a href="#quiz">แบบทดสอบ</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="สลับธีม" title="สลับธีม">☾</button>
+      <a href="#learn">เรียนรู้</a><a href="#practice">นำไปใช้</a><a href="#quiz">แบบทดสอบ</a>
+      <a class="nav-cta" href="#quiz">เริ่มทบทวน <span>↗</span></a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="hero-content">
-        <p class="eyebrow"><span class="eyebrow-dot"></span> เรียนรู้หลักธรรมเพื่อชีวิตที่เข้าใจ</p>
-        <h1>อริยสัจ 4<br><span>เข้าใจทุกข์ เห็นทางพ้นทุกข์</span></h1>
-        <p class="hero-desc">หลักความจริงอันประเสริฐที่ช่วยให้เราเข้าใจปัญหา มองเห็นเหตุ และค่อย ๆ ก้าวไปสู่ความสงบด้วยปัญญา</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#learn">เริ่มเรียนรู้ <span>→</span></a>
-          <a class="btn btn-ghost" href="#quiz">ลองทำแบบทดสอบ</a>
-        </div>
-        <div class="hero-note"><span>✦</span> “เมื่อรู้เหตุแห่งทุกข์ ย่อมเห็นหนทางแห่งการดับทุกข์”</div>
+        <p class="eyebrow"><span class="dot"></span> หลักธรรมเพื่อการดำเนินชีวิต</p>
+        <h1>เข้าใจทุกข์<br><em>พบทางแห่งสุข</em></h1>
+        <p class="hero-desc">อริยสัจ 4 คือความจริงอันประเสริฐที่ช่วยให้เราเข้าใจปัญหา เห็นเหตุแห่งทุกข์ และเรียนรู้วิธีคลี่คลายด้วยปัญญา</p>
+        <div class="hero-actions"><a class="button button-light" href="#learn">เริ่มเรียนรู้ <span>↓</span></a><a class="text-link" href="#practice">หลักธรรมในชีวิตประจำวัน <span>→</span></a></div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="sun-halo"></div><div class="lotus">✺</div>
-        <div class="circle-label label-top">ปัญญา</div><div class="circle-label label-bottom">สติ · เข้าใจ · ลงมือ</div>
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+      <div class="hero-art" aria-label="ภาพสัญลักษณ์ดอกบัวและวงแสง" role="img">
+        <div class="sun-glow"></div><div class="lotus">❀</div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="art-caption"><span>ปัญญา</span><b>จากการรู้<br>สู่การลงมือ</b></div>
       </div>
-      <div class="hero-bottom"><span>01 / หลักธรรมพื้นฐาน</span><span>เลื่อนลงเพื่อสำรวจ <span class="down-arrow">↓</span></span></div>
+      <div class="hero-bottom"><span>ธรรมะ · ปัญญา · การเปลี่ยนแปลง</span><span>เลื่อนลงเพื่อสำรวจ <b>⌄</b></span></div>
     </section>
 
     <section class="intro section-wrap" id="learn">
-      <div class="section-heading">
-        <p class="eyebrow">THE FOUR NOBLE TRUTHS</p>
-        <h2>ความจริง 4 ประการ</h2>
-        <p>พระพุทธเจ้าทรงแสดงอริยสัจ 4 เพื่อเป็นแนวทางทำความเข้าใจชีวิตและแก้ปัญหาอย่างเป็นเหตุเป็นผล</p>
+      <div class="section-kicker">01 / รู้จักหลักธรรม</div>
+      <div class="intro-grid">
+        <div><h2>ความจริง 4 ประการ<br>ที่ <em>เชื่อมโยงกัน</em></h2></div>
+        <div><p class="lead">อริยสัจ 4 เป็นหลักคำสอนสำคัญในพระพุทธศาสนา เปรียบได้กับกระบวนการเข้าใจปัญหาอย่างเป็นระบบ ตั้งแต่การรับรู้ปัญหาไปจนถึงการปฏิบัติเพื่อให้พ้นจากปัญหา</p><p class="muted">เลือกแต่ละหัวข้อเพื่ออ่านความหมายและแนวทางปฏิบัติ</p></div>
       </div>
-      <div class="truth-grid">
-        <article class="truth-card" tabindex="0" data-truth="dukkha">
-          <div class="card-top"><span class="truth-number">01</span><span class="truth-pali">Dukkha</span></div>
-          <div class="truth-icon icon-rose">◌</div><h3>ทุกข์</h3><p class="truth-subtitle">ความจริงว่าด้วยทุกข์</p>
-          <p>รู้จักและยอมรับสภาวะที่ทนได้ยาก ทั้งความไม่สบายกาย ความไม่สบายใจ และความไม่สมหวัง</p>
-          <button class="text-button" data-open="dukkha">เรียนรู้เพิ่มเติม <span>↗</span></button>
-        </article>
-        <article class="truth-card" tabindex="0" data-truth="samudaya">
-          <div class="card-top"><span class="truth-number">02</span><span class="truth-pali">Samudaya</span></div>
-          <div class="truth-icon icon-amber">⌁</div><h3>สมุทัย</h3><p class="truth-subtitle">ความจริงว่าด้วยเหตุเกิดทุกข์</p>
-          <p>พิจารณาต้นเหตุของทุกข์ โดยเฉพาะตัณหา ความอยากและความยึดติดที่ทำให้ใจไม่เป็นอิสระ</p>
-          <button class="text-button" data-open="samudaya">เรียนรู้เพิ่มเติม <span>↗</span></button>
-        </article>
-        <article class="truth-card" tabindex="0" data-truth="nirodha">
-          <div class="card-top"><span class="truth-number">03</span><span class="truth-pali">Nirodha</span></div>
-          <div class="truth-icon icon-teal">◎</div><h3>นิโรธ</h3><p class="truth-subtitle">ความจริงว่าด้วยความดับทุกข์</p>
-          <p>ความดับตัณหาและความยึดติด เป็นภาวะที่ใจสงบและเป็นอิสระจากเหตุแห่งทุกข์</p>
-          <button class="text-button" data-open="nirodha">เรียนรู้เพิ่มเติม <span>↗</span></button>
-        </article>
-        <article class="truth-card" tabindex="0" data-truth="magga">
-          <div class="card-top"><span class="truth-number">04</span><span class="truth-pali">Magga</span></div>
-          <div class="truth-icon icon-green">✧</div><h3>มรรค</h3><p class="truth-subtitle">ความจริงว่าด้วยทางดับทุกข์</p>
-          <p>แนวทางปฏิบัติที่นำไปสู่ความดับทุกข์ คือมรรคมีองค์ 8 ฝึกพัฒนาปัญญา ศีล และสมาธิ</p>
-          <button class="text-button" data-open="magga">เรียนรู้เพิ่มเติม <span>↗</span></button>
-        </article>
+      <div class="truth-grid" id="truthCards">
+        <button class="truth-card active" data-truth="0"><span class="card-number">01</span><span class="symbol">◌</span><h3>ทุกข์</h3><p>รู้จักปัญหาและสภาวะที่ทนได้ยาก</p><span class="card-arrow">↗</span></button>
+        <button class="truth-card" data-truth="1"><span class="card-number">02</span><span class="symbol">⌁</span><h3>สมุทัย</h3><p>เข้าใจเหตุที่ทำให้เกิดทุกข์</p><span class="card-arrow">↗</span></button>
+        <button class="truth-card" data-truth="2"><span class="card-number">03</span><span class="symbol">✧</span><h3>นิโรธ</h3><p>เห็นความเป็นไปได้ของการดับทุกข์</p><span class="card-arrow">↗</span></button>
+        <button class="truth-card" data-truth="3"><span class="card-number">04</span><span class="symbol">⟡</span><h3>มรรค</h3><p>ฝึกหนทางที่นำไปสู่การดับทุกข์</p><span class="card-arrow">↗</span></button>
       </div>
-      <div class="learning-tip"><span class="tip-icon">✦</span><div><strong>จำง่ายด้วยลำดับ</strong><p>รู้ว่าทุกข์คืออะไร → รู้เหตุของทุกข์ → เห็นความดับทุกข์ → ลงมือเดินตามทาง</p></div></div>
+      <div class="truth-detail" aria-live="polite">
+        <div class="detail-icon" id="detailIcon">◌</div><div><span class="detail-label" id="detailLabel">อริยสัจข้อที่ 1</span><h3 id="detailTitle">ทุกข์ — สิ่งที่ควรกำหนดรู้</h3><p id="detailText">ความไม่สบายกาย ไม่สบายใจ ความผิดหวัง หรือความเปลี่ยนแปลงที่ทำให้ใจเป็นทุกข์ การเริ่มต้นคือยอมรับและมองเห็นปัญหาตามความเป็นจริง</p><div class="detail-tip" id="detailTip">ลองถามตัวเอง: “ตอนนี้สิ่งที่ทำให้ฉันไม่สบายใจคืออะไร?”</div></div>
+      </div>
     </section>
 
     <section class="path-section" id="practice">
-      <div class="section-wrap path-wrap">
-        <div class="section-heading light-heading">
-          <p class="eyebrow">A PRACTICAL PATH</p><h2>มรรคมีองค์ 8</h2>
-          <p>แนวทางฝึกตนให้ดำเนินชีวิตอย่างสมดุล แบ่งเป็น 3 กลุ่ม คือ ปัญญา ศีล และสมาธิ</p>
+      <div class="section-wrap">
+        <div class="section-kicker light-kicker">02 / นำไปใช้ในชีวิต</div>
+        <div class="path-heading"><h2>จากปัญหา<br>สู่ <em>การเปลี่ยนแปลง</em></h2><p>ลองมองสถานการณ์หนึ่งผ่านมุมของอริยสัจ 4<br>เพื่อให้การเรียนรู้เกิดขึ้นในชีวิตจริง</p></div>
+        <div class="steps">
+          <article><span class="step">STEP 01</span><div class="step-symbol">◌</div><h3>กำหนดรู้</h3><p>ยอมรับว่ากำลังเผชิญปัญหา โดยไม่รีบตัดสินตนเอง</p></article>
+          <article><span class="step">STEP 02</span><div class="step-symbol">⌁</div><h3>ค้นหาเหตุ</h3><p>สำรวจความคิด ความคาดหวัง หรือปัจจัยที่เกี่ยวข้อง</p></article>
+          <article><span class="step">STEP 03</span><div class="step-symbol">✧</div><h3>เห็นเป้าหมาย</h3><p>นึกถึงสภาวะที่ใจคลี่คลาย และสิ่งที่เปลี่ยนแปลงได้</p></article>
+          <article><span class="step">STEP 04</span><div class="step-symbol">⟡</div><h3>ลงมือปฏิบัติ</h3><p>เลือกวิธีที่เหมาะสม เช่น มีสติ คิดอย่างรอบคอบ และทำอย่างสม่ำเสมอ</p></article>
         </div>
-        <div class="path-groups">
-          <div class="path-group">
-            <div class="group-label"><span class="group-symbol">◈</span><div><h3>ปัญญา</h3><small>เข้าใจอย่างถูกต้อง</small></div></div>
-            <div class="path-items"><span>สัมมาทิฏฐิ <small>เห็นชอบ</small></span><span>สัมมาสังกัปปะ <small>ดำริชอบ</small></span></div>
-          </div>
-          <div class="path-group">
-            <div class="group-label"><span class="group-symbol">❋</span><div><h3>ศีล</h3><small>อยู่ร่วมกันอย่างเกื้อกูล</small></div></div>
-            <div class="path-items"><span>สัมมาวาจา <small>เจรจาชอบ</small></span><span>สัมมากัมมันตะ <small>กระทำชอบ</small></span><span>สัมมาอาชีวะ <small>เลี้ยงชีพชอบ</small></span></div>
-          </div>
-          <div class="path-group">
-            <div class="group-label"><span class="group-symbol">◉</span><div><h3>สมาธิ</h3><small>ฝึกใจให้มั่นคง</small></div></div>
-            <div class="path-items"><span>สัมมาวายามะ <small>เพียรชอบ</small></span><span>สัมมาสติ <small>ระลึกชอบ</small></span><span>สัมมาสมาธิ <small>ตั้งใจมั่นชอบ</small></span></div>
-          </div>
-        </div>
+        <div class="reflection"><span class="reflection-mark">“</span><div><p>การเปลี่ยนแปลงเริ่มต้นจากการมองเห็นอย่างชัดเจน</p><small>พื้นที่เล็ก ๆ สำหรับฝึกสติและปัญญาในทุกวัน</small></div></div>
       </div>
     </section>
 
-    <section class="reflection section-wrap">
-      <div class="reflection-copy"><p class="eyebrow">PAUSE & REFLECT</p><h2>ลองมองปัญหา<br>ด้วยมุมใหม่</h2><p>เมื่อเจอเรื่องไม่สบายใจ ลองหยุดสักครู่ แล้วใช้คำถาม 4 ข้อนี้เป็นแนวทาง</p></div>
-      <div class="reflection-steps">
-        <div><span>01</span><p><strong>ทุกข์</strong> — ตอนนี้ฉันกำลังรู้สึกหรือเผชิญอะไร?</p></div>
-        <div><span>02</span><p><strong>สมุทัย</strong> — อะไรเป็นสาเหตุหรือสิ่งที่ฉันยึดติด?</p></div>
-        <div><span>03</span><p><strong>นิโรธ</strong> — ถ้าคลายเหตุนี้ลง ใจฉันจะเป็นอย่างไร?</p></div>
-        <div><span>04</span><p><strong>มรรค</strong> — ฉันจะลงมือทำสิ่งเล็ก ๆ ที่เหมาะสมอะไรได้บ้าง?</p></div>
-      </div>
-    </section>
-
-    <section class="quiz-section" id="quiz">
-      <div class="section-wrap quiz-wrap">
-        <div class="section-heading">
-          <p class="eyebrow">CHECK YOUR UNDERSTANDING</p><h2>ทบทวนความเข้าใจ</h2><p>ลองตอบคำถาม 5 ข้อ เพื่อทบทวนบทเรียนอริยสัจ 4</p>
-        </div>
-        <div class="quiz-panel" id="quizPanel">
-          <div class="quiz-progress"><span id="progressLabel">ข้อ 1 จาก 5</span><div class="progress-track"><div id="progressBar"></div></div></div>
-          <div id="questionArea"></div>
-          <div class="quiz-controls"><button class="btn btn-ghost" id="prevBtn" disabled>← ก่อนหน้า</button><button class="btn btn-primary" id="nextBtn">ข้อต่อไป →</button></div>
-          <div id="quizFeedback" role="status" aria-live="polite"></div>
-        </div>
-        <div class="quiz-result" id="quizResult" hidden></div>
+    <section class="quiz-section section-wrap" id="quiz">
+      <div class="section-kicker">03 / ตรวจสอบความเข้าใจ</div>
+      <div class="quiz-heading"><div><h2>ลองทบทวน<br><em>ความรู้ของคุณ</em></h2><p>ตอบคำถาม 5 ข้อ แล้วตรวจคะแนนเพื่อทบทวนสิ่งที่เรียนรู้</p></div><div class="quiz-badge">✦<span>QUIZ<br>TIME</span></div></div>
+      <div class="quiz-panel">
+        <div class="quiz-top"><span id="questionCount">คำถาม 1 / 5</span><div class="progress-track"><div id="progressBar"></div></div><span id="scoreLive">0 คะแนน</span></div>
+        <form id="quizForm">
+          <h3 id="questionText">อริยสัจข้อใดกล่าวถึงการรู้จักปัญหาหรือสภาวะที่เป็นทุกข์?</h3>
+          <div class="answers" id="answerOptions"></div>
+          <div class="quiz-controls"><button type="button" class="button button-outline" id="prevBtn" disabled>← ย้อนกลับ</button><button type="button" class="button button-dark" id="nextBtn">ข้อต่อไป <span>→</span></button></div>
+          <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+        </form>
+        <div class="quiz-result" id="quizResult" hidden><div class="result-icon">✧</div><p class="eyebrow">สรุปผลการเรียนรู้</p><h3 id="resultTitle">ยอดเยี่ยม!</h3><p id="resultMessage"></p><div class="result-score" id="resultScore">5 / 5</div><button class="button button-dark" id="retryBtn">ทำแบบทดสอบอีกครั้ง ↻</button></div>
       </div>
     </section>
   </main>
-
-  <footer><div class="footer-brand"><span class="brand-mark">☸</span><strong>ธรรมะใกล้ใจ</strong></div><p>เรียนรู้หลักธรรม นำปัญญาสู่ชีวิตประจำวัน</p><span class="footer-credit">สื่อการเรียนรู้เรื่องอริยสัจ 4 · สร้างเพื่อการศึกษา</span></footer>
-
-  <dialog id="truthDialog" class="truth-dialog">
-    <button class="dialog-close" id="dialogClose" aria-label="ปิด">×</button>
-    <p class="eyebrow" id="dialogPali"></p><h2 id="dialogTitle"></h2><p id="dialogText"></p>
-    <div class="dialog-example"><strong>ตัวอย่างในชีวิตประจำวัน</strong><p id="dialogExample"></p></div>
-    <button class="btn btn-primary" id="dialogDone">เข้าใจแล้ว</button>
-  </dialog>
+  <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">☸</span><span><strong>อริยสัจ 4</strong><small>เส้นทางแห่งความเข้าใจ</small></span></a><p>เรียนรู้ด้วยปัญญา · ฝึกฝนด้วยความเพียร</p><a href="#home" class="back-top">กลับสู่ด้านบน ↑</a></footer>
   <script src="script.js"></script>
 </body>
 </html>

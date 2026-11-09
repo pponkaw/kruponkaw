@@ -1,140 +1,63 @@
-(() => {
-  "use strict";
+const truths = [
+  {label:"อริยสัจข้อที่ 1",title:"ทุกข์ — สิ่งที่ควรกำหนดรู้",icon:"◌",text:"ความไม่สบายกาย ไม่สบายใจ ความผิดหวัง หรือความเปลี่ยนแปลงที่ทำให้ใจเป็นทุกข์ การเริ่มต้นคือยอมรับและมองเห็นปัญหาตามความเป็นจริง",tip:"ลองถามตัวเอง: “ตอนนี้สิ่งที่ทำให้ฉันไม่สบายใจคืออะไร?”"},
+  {label:"อริยสัจข้อที่ 2",title:"สมุทัย — เหตุแห่งทุกข์",icon:"⌁",text:"เหตุที่ทำให้เกิดทุกข์ โดยหลักสำคัญคือ ตัณหา หรือความทะยานอยาก การสำรวจความคาดหวังและความยึดติดช่วยให้เข้าใจต้นตอของปัญหา",tip:"ลองถามตัวเอง: “อะไรเป็นเหตุหรือปัจจัยที่ทำให้เกิดความรู้สึกนี้?”"},
+  {label:"อริยสัจข้อที่ 3",title:"นิโรธ — ความดับทุกข์",icon:"✧",text:"ความดับทุกข์เมื่อเหตุแห่งทุกข์คลี่คลาย เป็นการเห็นว่าความสงบและการปล่อยวางเป็นไปได้ ไม่จำเป็นต้องยึดติดกับสิ่งเดิมเสมอไป",tip:"ลองถามตัวเอง: “หากคลี่คลายปัญหานี้ได้ ใจของฉันจะเป็นอย่างไร?”"},
+  {label:"อริยสัจข้อที่ 4",title:"มรรค — หนทางดับทุกข์",icon:"⟡",text:"แนวทางปฏิบัติเพื่อดับทุกข์ ได้แก่ มรรคมีองค์ 8 ซึ่งครอบคลุมการมีปัญญา ศีล และการฝึกจิต เช่น คิดอย่างถูกต้อง มีสติ และดำเนินชีวิตอย่างเหมาะสม",tip:"ลองถามตัวเอง: “วันนี้ฉันจะลงมือทำสิ่งใดอย่างมีสติได้บ้าง?”"}
+];
+const cards = [...document.querySelectorAll(".truth-card")];
+const detailIcon = document.getElementById("detailIcon");
+const detailLabel = document.getElementById("detailLabel");
+const detailTitle = document.getElementById("detailTitle");
+const detailText = document.getElementById("detailText");
+const detailTip = document.getElementById("detailTip");
+cards.forEach(card => card.addEventListener("click", () => {
+  const item = truths[Number(card.dataset.truth)];
+  cards.forEach(c => c.classList.toggle("active", c === card));
+  detailIcon.textContent = item.icon; detailLabel.textContent = item.label;
+  detailTitle.textContent = item.title; detailText.textContent = item.text; detailTip.textContent = item.tip;
+}));
 
-  const truthData = {
-    dukkha: { title: "ทุกข์", pali: "DUKKHA · ความจริงว่าด้วยทุกข์", text: "ทุกข์คือสภาวะที่ทนได้ยากและความไม่สมบูรณ์ของชีวิต เช่น การเกิด แก่ เจ็บ ตาย การพลัดพรากจากสิ่งที่รัก หรือการประสบสิ่งที่ไม่ปรารถนา การรู้จักทุกข์ไม่ได้หมายถึงการมองโลกในแง่ร้าย แต่เป็นการยอมรับความจริงเพื่อเข้าใจและแก้ไข", example: "เมื่อผิดหวังจากผลสอบ ให้ยอมรับว่ากำลังเสียใจ แทนการปฏิเสธความรู้สึกหรือโทษตัวเอง" },
-    samudaya: { title: "สมุทัย", pali: "SAMUDAYA · ความจริงว่าด้วยเหตุเกิดทุกข์", text: "สมุทัยคือเหตุแห่งทุกข์ โดยอธิบายถึงตัณหา ได้แก่ ความอยากในกาม ความอยากเป็นหรืออยากมี และความอยากไม่เป็นหรือไม่อยากมี การสังเกตความอยากและความยึดติดช่วยให้เห็นต้นตอของความไม่สบายใจ", example: "ลองถามตัวเองว่าเสียใจเพราะผลสอบ หรือเพราะยึดว่าต้องได้คะแนนสูงเท่านั้นจึงจะมีคุณค่า" },
-    nirodha: { title: "นิโรธ", pali: "NIRODHA · ความจริงว่าด้วยความดับทุกข์", text: "นิโรธคือความดับทุกข์เมื่อเหตุแห่งทุกข์ โดยเฉพาะตัณหาและความยึดติด ดับลง เป็นการคลายใจจากการเกาะเกี่ยวและเปิดทางสู่ความสงบ ไม่ใช่การหนีปัญหาแต่เป็นการไม่ถูกปัญหาครอบงำ", example: "ยอมรับผลสอบตามจริง วางความคิดเปรียบเทียบ แล้วมองเห็นใจที่ผ่อนคลายขึ้น" },
-    magga: { title: "มรรค", pali: "MAGGA · ความจริงว่าด้วยทางดับทุกข์", text: "มรรคคือแนวทางปฏิบัติเพื่อความดับทุกข์ ได้แก่ มรรคมีองค์ 8 ซึ่งรวมการเห็นชอบ ดำริชอบ วาจาชอบ การกระทำชอบ อาชีพชอบ ความเพียรชอบ สติชอบ และสมาธิชอบ", example: "วางแผนอ่านหนังสืออย่างเหมาะสม พูดกับตัวเองอย่างเมตตา มีสติขณะเรียน และพยายามอย่างต่อเนื่อง" }
-  };
-
-  const questions = [
-    { q: "ข้อใดหมายถึง “ทุกข์” ในอริยสัจ 4?", options: ["ความจริงว่าด้วยเหตุเกิดทุกข์", "ความจริงว่าด้วยสภาวะที่ทนได้ยาก", "ความจริงว่าด้วยทางดับทุกข์", "ความจริงว่าด้วยความดับทุกข์"], answer: 1, explain: "ทุกข์ คือความจริงว่าด้วยสภาวะที่ทนได้ยากและความไม่สมบูรณ์ของชีวิต" },
-    { q: "ตัณหา ซึ่งเป็นเหตุสำคัญของทุกข์ จัดอยู่ในอริยสัจข้อใด?", options: ["ทุกข์", "สมุทัย", "นิโรธ", "มรรค"], answer: 1, explain: "สมุทัยกล่าวถึงเหตุแห่งทุกข์ โดยมีตัณหาเป็นเหตุสำคัญ" },
-    { q: "อริยสัจข้อใดกล่าวถึงความดับทุกข์?", options: ["ทุกข์", "สมุทัย", "นิโรธ", "มรรค"], answer: 2, explain: "นิโรธ คือความดับทุกข์เมื่อเหตุแห่งทุกข์ดับลง" },
-    { q: "มรรคมีองค์ 8 แบ่งเป็นกลุ่มหลักใดบ้าง?", options: ["ทาน ศีล ภาวนา", "ปัญญา ศีล สมาธิ", "กาย วาจา ใจ", "ทุกข์ สมุทัย นิโรธ"], answer: 1, explain: "มรรคมีองค์ 8 จัดเป็น 3 กลุ่ม ได้แก่ ปัญญา ศีล และสมาธิ" },
-    { q: "เมื่อต้องเผชิญปัญหา การนำอริยสัจ 4 มาใช้ควรเริ่มจากข้อใด?", options: ["รีบหลีกหนีปัญหา", "โทษผู้อื่น", "ทำความเข้าใจทุกข์ที่กำลังเผชิญ", "พยายามไม่รู้สึกอะไร"], answer: 2, explain: "เริ่มจากรู้และเข้าใจทุกข์ จากนั้นพิจารณาเหตุ ความดับ และแนวทางปฏิบัติ" }
-  ];
-
-  const $ = (selector) => document.querySelector(selector);
-  const dialog = $("#truthDialog");
-  $("#mainNav").querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
-    $("#mainNav").classList.remove("open");
-    $("#menuToggle").setAttribute("aria-expanded", "false");
-  }));
-  $("#menuToggle").addEventListener("click", () => {
-    const open = $("#mainNav").classList.toggle("open");
-    $("#menuToggle").setAttribute("aria-expanded", String(open));
+const questions = [
+ {q:"อริยสัจข้อใดกล่าวถึงการรู้จักปัญหาหรือสภาวะที่เป็นทุกข์?",a:["ทุกข์","สมุทัย","นิโรธ","มรรค"],correct:0,explain:"ทุกข์ คือสภาวะปัญหาหรือสิ่งที่ควรกำหนดรู้"},
+ {q:"ตัณหา ซึ่งเป็นเหตุสำคัญของทุกข์ จัดอยู่ในอริยสัจข้อใด?",a:["ทุกข์","สมุทัย","นิโรธ","มรรค"],correct:1,explain:"สมุทัยกล่าวถึงเหตุแห่งทุกข์ โดยมีตัณหาเป็นเหตุสำคัญ"},
+ {q:"อริยสัจข้อใดหมายถึงความดับทุกข์?",a:["ทุกข์","สมุทัย","นิโรธ","มรรค"],correct:2,explain:"นิโรธ คือความดับทุกข์หรือการสิ้นไปของเหตุแห่งทุกข์"},
+ {q:"มรรคมีองค์ 8 เป็นแนวทางที่สัมพันธ์กับอริยสัจข้อใด?",a:["ทุกข์","สมุทัย","นิโรธ","มรรค"],correct:3,explain:"มรรคเป็นข้อปฏิบัติหรือหนทางเพื่อดับทุกข์"},
+ {q:"หากรู้สึกกังวลและเริ่มสำรวจเหตุของความกังวล กำลังพิจารณาอริยสัจข้อใด?",a:["ทุกข์เท่านั้น","สมุทัย","นิโรธ","มรรค"],correct:1,explain:"การค้นหาเหตุที่ทำให้เกิดความกังวล สอดคล้องกับสมุทัย"}
+];
+let current = 0;
+let selected = Array(questions.length).fill(null);
+let checked = Array(questions.length).fill(false);
+let score = 0;
+const qCount=document.getElementById("questionCount"), progress=document.getElementById("progressBar"), liveScore=document.getElementById("scoreLive"), qText=document.getElementById("questionText"), options=document.getElementById("answerOptions"), prev=document.getElementById("prevBtn"), next=document.getElementById("nextBtn"), feedback=document.getElementById("quizFeedback"), form=document.getElementById("quizForm"), result=document.getElementById("quizResult");
+function renderQuestion(){
+  const q=questions[current]; qCount.textContent=`คำถาม ${current+1} / ${questions.length}`;
+  progress.style.width=`${((current+1)/questions.length)*100}%`; liveScore.textContent=`${score} คะแนน`;
+  qText.textContent=q.q; options.innerHTML="";
+  q.a.forEach((answer,i)=>{
+    const label=document.createElement("label"); label.className="answer-option"+(selected[current]===i?" selected":"");
+    const radio=document.createElement("input");radio.type="radio";radio.name="answer";radio.value=i;radio.checked=selected[current]===i;radio.disabled=checked[current];
+    radio.addEventListener("change",()=>{selected[current]=i;renderQuestion();});
+    const text=document.createElement("span");text.textContent=answer;label.append(radio,text);options.append(label);
   });
-
-  $("#themeToggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    const dark = document.body.classList.contains("dark");
-    $("#themeToggle").textContent = dark ? "☀" : "☾";
-    $("#themeToggle").setAttribute("aria-label", dark ? "เปลี่ยนเป็นธีมสว่าง" : "เปลี่ยนเป็นธีมมืด");
-  });
-
-  function openTruth(key) {
-    const data = truthData[key];
-    if (!data) return;
-    $("#dialogPali").textContent = data.pali;
-    $("#dialogTitle").textContent = data.title;
-    $("#dialogText").textContent = data.text;
-    $("#dialogExample").textContent = data.example;
-    if (typeof dialog.showModal === "function") dialog.showModal();
-    else alert(`${data.title}\n\n${data.text}\n\nตัวอย่าง: ${data.example}`);
-  }
-  document.querySelectorAll("[data-open]").forEach(button => button.addEventListener("click", event => {
-    event.stopPropagation();
-    openTruth(button.dataset.open);
-  }));
-  document.querySelectorAll(".truth-card").forEach(card => card.addEventListener("keydown", event => {
-    if (event.key === "Enter" && event.target === card) openTruth(card.dataset.truth);
-  }));
-  $("#dialogClose").addEventListener("click", () => dialog.close());
-  $("#dialogDone").addEventListener("click", () => dialog.close());
-  dialog.addEventListener("click", event => {
-    if (event.target === dialog) dialog.close();
-  });
-
-  let current = 0;
-  const responses = Array(questions.length).fill(null);
-  const questionArea = $("#questionArea");
-  function renderQuestion() {
-    const item = questions[current];
-    $("#progressLabel").textContent = `ข้อ ${current + 1} จาก ${questions.length}`;
-    $("#progressBar").style.width = `${((current + 1) / questions.length) * 100}%`;
-    questionArea.innerHTML = "";
-    const heading = document.createElement("h3");
-    heading.className = "question-title";
-    heading.textContent = item.q;
-    questionArea.appendChild(heading);
-    const choices = document.createElement("div");
-    choices.className = "answers";
-    item.options.forEach((option, index) => {
-      const label = document.createElement("label");
-      label.className = "answer-option" + (responses[current] === index ? " selected" : "");
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = "answer";
-      input.value = String(index);
-      input.checked = responses[current] === index;
-      input.addEventListener("change", () => {
-        responses[current] = index;
-        choices.querySelectorAll(".answer-option").forEach(node => node.classList.remove("selected"));
-        label.classList.add("selected");
-        $("#quizFeedback").textContent = "";
-      });
-      const text = document.createElement("span");
-      text.textContent = option;
-      label.append(input, text);
-      choices.appendChild(label);
-    });
-    questionArea.appendChild(choices);
-    $("#prevBtn").disabled = current === 0;
-    $("#nextBtn").textContent = current === questions.length - 1 ? "ส่งคำตอบ ✓" : "ข้อต่อไป →";
-    $("#quizFeedback").textContent = "";
-  }
-  $("#prevBtn").addEventListener("click", () => {
-    if (current > 0) { current--; renderQuestion(); }
-  });
-  $("#nextBtn").addEventListener("click", () => {
-    if (responses[current] === null) {
-      $("#quizFeedback").textContent = "กรุณาเลือกคำตอบก่อนดำเนินการต่อ";
-      return;
-    }
-    if (current < questions.length - 1) { current++; renderQuestion(); }
-    else showResult();
-  });
-  function showResult() {
-    const score = responses.reduce((total, answer, index) => total + (answer === questions[index].answer ? 1 : 0), 0);
-    $("#quizPanel").hidden = true;
-    const result = $("#quizResult");
-    result.hidden = false;
-    const message = score === 5 ? "ยอดเยี่ยม! เข้าใจหลักธรรมได้ดีมาก" : score >= 3 ? "ทำได้ดี! ทบทวนอีกนิดเพื่อความแม่นยำ" : "ลองกลับไปอ่านบทเรียน แล้วทดสอบอีกครั้งนะ";
-    result.innerHTML = `<div class="eyebrow">YOUR RESULT</div><div class="result-score">${score}<span style="font-size:1.5rem;color:var(--muted)"> / ${questions.length}</span></div><h3>${message}</h3><p>คะแนนของคุณ ${score * 20}%</p><div id="answerReview" style="text-align:left;margin:25px 0"></div><button class="btn btn-primary" id="restartQuiz">ทำแบบทดสอบอีกครั้ง ↻</button>`;
-    const review = $("#answerReview");
-    questions.forEach((question, index) => {
-      const row = document.createElement("div");
-      row.style.cssText = "border-top:1px solid var(--line);padding:13px 0;font-size:.83rem";
-      const correct = responses[index] === question.answer;
-      const title = document.createElement("strong");
-      title.textContent = `${index + 1}. ${correct ? "✓ ถูกต้อง" : "✗ ยังไม่ถูก"} — ${question.q}`;
-      title.style.color = correct ? "#4c8b63" : "#b66a5c";
-      const detail = document.createElement("p");
-      detail.style.cssText = "margin:5px 0;color:var(--muted)";
-      detail.textContent = `คำตอบ: ${question.options[question.answer]} · ${question.explain}`;
-      row.append(title, detail);
-      review.appendChild(row);
-    });
-    $("#restartQuiz").addEventListener("click", () => {
-      current = 0;
-      responses.fill(null);
-      result.hidden = true;
-      $("#quizPanel").hidden = false;
-      renderQuestion();
-      $("#quiz").scrollIntoView({ behavior: "smooth" });
-    });
-  }
-  renderQuestion();
-})();
+  prev.disabled=current===0; next.textContent=checked[current]?(current===questions.length-1?"ดูผลคะแนน":"ข้อต่อไป →"):(current===questions.length-1?"ตรวจคำตอบ":"ข้อต่อไป →");
+  feedback.textContent=checked[current]?questions[current].explain:"";
+  if(checked[current]) feedback.textContent=(selected[current]===q.correct?"✓ ถูกต้อง! ":"✕ ยังไม่ถูกต้อง ") + q.explain;
+}
+function calculateScore(){score=questions.reduce((sum,q,i)=>sum+(selected[i]===q.correct?1:0),0);}
+next.addEventListener("click",()=>{
+  if(selected[current]===null){feedback.textContent="กรุณาเลือกคำตอบก่อนดำเนินการ";return;}
+  if(!checked[current]){checked[current]=true;calculateScore();renderQuestion();return;}
+  if(current<questions.length-1){current++;renderQuestion();}else showResult();
+});
+prev.addEventListener("click",()=>{if(current>0){current--;renderQuestion();}});
+function showResult(){
+  calculateScore();form.hidden=true;result.hidden=false;
+  document.getElementById("resultScore").textContent=`${score} / ${questions.length}`;
+  document.getElementById("resultTitle").textContent=score===questions.length?"ยอดเยี่ยม!":score>=3?"ทำได้ดีมาก!":"ลองทบทวนอีกครั้งนะ";
+  document.getElementById("resultMessage").textContent=`คุณตอบถูก ${score} ข้อจาก ${questions.length} ข้อ ${score>=4?"เข้าใจหลักอริยสัจ 4 ได้ดีแล้ว":"ทบทวนเนื้อหาแต่ละข้อแล้วลองทำใหม่เพื่อเพิ่มความเข้าใจ"}`;
+}
+document.getElementById("retryBtn").addEventListener("click",()=>{current=0;selected=Array(questions.length).fill(null);checked=Array(questions.length).fill(false);score=0;form.hidden=false;result.hidden=true;renderQuestion();});
+const menuToggle=document.getElementById("menuToggle"),nav=document.getElementById("mainNav");
+menuToggle.addEventListener("click",()=>{const opened=nav.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(opened));menuToggle.setAttribute("aria-label",opened?"ปิดเมนู":"เปิดเมนู");menuToggle.textContent=opened?"×":"☰";});
+nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{nav.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.setAttribute("aria-label","เปิดเมนู");menuToggle.textContent="☰";}));
+renderQuestion();
